@@ -12,4 +12,4 @@ process.stdin.on('data', (data) => {
 process.on('SIGINT', () => {
   console.log('This important software is now closing');
   process.exit(0);
-})
+});
