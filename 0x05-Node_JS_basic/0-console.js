@@ -3,7 +3,7 @@
  * @param {string} str - The message to be displayed.
  */
 function displayMessage(str) {
-    console.log(str);
+  console.log(str);
 }
 
-module.exports = displayMessage
+module.exports = displayMessage;
