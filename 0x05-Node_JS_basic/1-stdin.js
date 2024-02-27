@@ -1,15 +1,23 @@
-// Display the welcome message
-console.log('Welcome to Holberton School, what is your name?');
+/**
+ *
+ * Define a function that accepts user
+ * input from the standard input stream.
+ *
+ * */
+const msg = 'Welcome to Holberton School, what is your name?';
 
-// Read input from stdin
-process.stdin.on('data', (data) => {
-  const input = data.toString().trim(); // Trim whitespace and newlines
-  console.log('Your name is:', input);
-  console.log('This important software is now closing');
-  process.exit(0); // Exit the script
+// Prompt user for input,
+process.stdout.write(`${msg}\n`);
+// Accept user input,
+process.stdin.on('readable', () => {
+  const name = process.stdin.read();
+  if (name !== null) {
+    process.stdout.write(`Your name is: ${name}`);
+  }
 });
 
-process.on('SIGINT', () => {
-  console.log('This important software is now closing');
-  process.exit(0);
+// Only print custom message when user ends
+// the program.
+process.stdin.on('end', () => {
+  process.stdout.write('This important software is now closing\n');
 });
